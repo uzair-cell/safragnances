@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CHANGE THIS LINE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SA Fragrances - Premium Islamic Perfumes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #D4AF25;
+            --secondary: #37d433;
+            --accent: #C19A6B;
+            --dark: #1a1a1a;
+            --light: #f8f5f2;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: #333;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cinzel', serif;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #6b3710;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #c19a1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 3rem 0;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .perfume-bottle {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .perfume-bottle::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('big image.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* ADD THIS ENTIRE MOBILE CSS SECTION */
+        /* Mobile Responsive Fixes */
+        @media (max-width: 768px) {
+            /* Hero Section */
+            .hero-section {
+                background-attachment: scroll !important;
+                height: 70vh !important;
+                padding: 20px 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+                padding: 0 15px;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem !important;
+                padding: 0 15px;
+            }
+            
+            /* Navigation */
+            nav .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Buttons */
+            .btn-primary, .btn-secondary {
+                padding: 14px 20px !important;
+                font-size: 16px !important;
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            
+            /* About Section */
+            #about .flex-col {
+                padding: 0 10px;
+            }
+            
+            #about img {
+                max-width: 280px !important;
+                height: 280px !important;
+                margin: 0 auto;
+                display: block;
+            }
+            
+            /* Products Grid */
+            .grid.grid-cols-1 {
+                gap: 20px;
+                padding: 0 10px;
+            }
+            
+            .product-card {
+                margin: 0 5px;
+            }
+            
+            /* Testimonials */
+            .testimonial-card {
+                margin: 0 10px;
+                padding: 20px;
+            }
+            
+            /* WhatsApp Float */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 24px;
+            }
+            
+            /* Container padding */
+            .container.mx-auto.px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            /* Text sizes */
+            h2.text-3xl {
+                font-size: 1.8rem !important;
+            }
+            
+            .text-xl {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 60vh !important;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem !important;
+            }
+            
+            #about img {
+                max-width: 250px !important;
+                height: 250px !important;
+            }
+            
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .product-card h3 {
+                font-size: 1.1rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20place%20an%20order" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-amber-900 font-serif">SA Fragrances</h1>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-amber-800 font-medium">About</a>
+                    <a href="#products" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Products</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Testimonials</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-amber-800 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20place%20an%20order" 
+                       class="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Order Now
+                    </a>
+                    <button class="md:hidden text-gray-700 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- CHANGE THIS ENTIRE HERO SECTION -->
+    <section class="hero-section h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-7xl font-bold mb-6 font-serif">SA Fragrances</h1>
+            <p class="text-lg md:text-2xl text-amber-100 mb-8 max-w-2xl mx-auto font-serif">Premium Islamic Perfumes Crafted with Tradition & Elegance</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 w-full md:w-auto px-4">
+                <a href="#products" class="btn-primary px-6 py-4 rounded-full text-base md:text-lg font-medium transition duration-300 inline-flex items-center justify-center w-full md:w-auto">
+                    Explore Scents <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+                <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20place%20an%20order" 
+                   class="btn-secondary px-6 py-4 rounded-full text-base md:text-lg font-medium transition duration-300 inline-flex items-center justify-center w-full md:w-auto">
+                    <i class="fab fa-whatsapp mr-2"></i> Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="perfume-bottle flex justify-center">
+                        <!-- CHANGE THIS IMAGE LINE -->
+                        <img src="saad image.png" alt="SA Fragrances Store">
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-amber-900 mb-6 font-serif">Our Story</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Founded by Saad Abbasi, SA Fragrances brings you the finest Islamic perfumes crafted with traditional methods and premium ingredients. Our scents are alcohol-free, long-lasting, and inspired by the rich heritage of Arabian perfumery.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        Each fragrance is carefully blended to evoke memories of sacred places and timeless traditions, while meeting the highest standards of modern perfumery.
+                    </p>
+                    <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-medium inline-flex items-center">
+                        Contact Us <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-amber-900 mb-4 font-serif">Our Signature Scents</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-serif">Discover our collection of premium Islamic perfumes, each with its own unique character and story.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 - FAWN SPIRIT -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="perfume-bottle h-64 overflow-hidden">
+                        <img src="FLAWN SPIRIT.png" alt="FAWN SPIRIT" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-900 mb-2 font-serif">FAWN SPIRIT</h3>
+                        <p class="text-gray-600 mb-4">A rich blend of premium oud with hints of saffron and amber</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-800">2200 Rs</span>
+                            <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20order%20FAWN%20SPIRIT" 
+                               class="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="perfume-bottle h-64 overflow-hidden">
+                        <img width="330" height="220"src="coming soon 1.jpeg" alt="STAY TUNED COMMING SOON" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-900 mb-2 font-serif">Soon arriving</h3>
+                        <p class="text-gray-600 mb-4">soon arriving اِن شاءَ اللّٰہ</p> 
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-800"></span>
+                            <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20order%20Makkah%20Musk" 
+                               class="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="perfume-bottle h-64 overflow-hidden">
+                        <img src="coming soon 1.jpeg" alt="Comming soon" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-amber-900 mb-2 font-serif">Comming soon</h3>
+                        <p class="text-gray-600 mb-4">Be patient.....good things take time.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-amber-800"></span>
+                            <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20order%20Desert%20Rose" 
+                               class="btn-primary px-4 py-2 rounded-full text-sm font-medium flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20see%20all%20your%20fragrances" 
+                   class="btn-secondary px-8 py-3 rounded-full text-lg font-medium transition duration-300 inline-flex items-center">
+                    View All Fragrances <i class="fas fa-shopping-bag ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-amber-900 mb-4 font-serif">What Our Customers Say:👑</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto font-serif">Experiences from our valued customers around the world</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 mr-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"سعد بھائی واقعی میں باکمال خوشبو تھی یقین مانیں اس پرفیوم نے اپنے پیسے وصول کر دیے میں جہاں پر بھی اس کو لگا کے گیا لوگوں نے خوب تعریف کی ہم اس چیز کے لیے اپ کے بہت ممنون و مشکور ہیں اور ہم چاہتے ہیں کہ اپ ائندہ بھی اسی طرح کی پرفیومز لا کر ہمیں دیں ۔"</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ahsin Malik." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-medium text-gray-900">Ahsin Malik.</h4>
+                            <p class="text-gray-600 text-sm">Karachi,Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 mr-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Flawn spirit transports me back to my pilgrimage every time I wear it. The quality is exceptional and the scent is truly unique."</p>
+                    <div class="flex items-center">
+                        <img src="ht" alt="Yusuf A." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-medium text-gray-900">Yusuf Agha.</h4>
+                            <p class="text-gray-600 text-sm">Muzzaffarabad AJK</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-600 mr-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">"Flawn spirit is my signature scent now. It's feminine yet powerful, just like the women in our tradition. The packaging is also exquisite!"</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1438761681d8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Fatima R." class="w-12 h-12 rounded-full mr-4 object-cover">
+                        <div>
+                            <h4 class="font-medium text-gray-900">Fatima Rehman.</h4>
+                            <p class="text-gray-600 text-sm">Abbottabad ,pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter & Contact -->
+    <section id="contact" class="py-16 bg-amber-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6 font-serif">Join Our Fragrance Journey</h2>
+            <p class="text-amber-100 mb-8 max-w-2xl mx-auto font-serif">Subscribe to receive updates on new arrivals, exclusive offers, and Islamic perfumery insights.</p>
+            
+            <form class="max-w-md mx-auto flex mb-12">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-gray-900">
+                <button type="submit" class="btn-secondary px-6 py-3 rounded-r-full font-medium">
+                    Subscribe
+                </button>
+            </form>
+            
+            <div class="mt-8">
+                <h3 class="text-xl font-bold mb-4 font-serif">Connect With Us</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-amber-100 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-amber-100 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20have%20a%20question" 
+                       class="text-amber-100 hover:text-white text-2xl"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">SA Fragrances</h3>
+                    <p class="text-gray-400">Premium Islamic perfumes crafted with tradition and elegance.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-amber-500"></i> +92 342 7170064
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-amber-500"></i> info@safragrances.com
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Order Now</h4>
+                    <a href="https://wa.me/923427170064?text=Hi%20SA%20Fragrances%2C%20I%20would%20like%20to%20place%20an%20order" 
+                       class="btn-primary px-4 py-2 rounded-full text-sm font-medium inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Order on WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 SA Fragrances. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const menu = document.querySelector('.hidden.md\\:flex');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+            menu.classList.toggle('flex-col');
+            menu.classList.toggle('absolute');
+            menu.classList.toggle('top-16');
+            menu.classList.toggle('left-0');
+            menu.classList.toggle('w-full');
+            menu.classList.toggle('bg-white');
+            menu.classList.toggle('p-4');
+            menu.classList.toggle('space-y-4');
+            menu.classList.toggle('shadow-md');
+        });
+    </script>
+</body>
+</html>
